@@ -29,7 +29,7 @@ cp nginx/conf.d/.app.conf.example nginx/conf.d/app.conf
 ### Step5
 cp your mysql configuration file
 ```
-cp mysql/.mysql.env.example mysql/mysql.env
+cp mysql/.my.cnf.example mysql/my.cnf
 ```
 
 
