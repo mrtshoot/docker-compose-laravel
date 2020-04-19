@@ -42,11 +42,11 @@ git clone https://github.com/laravel/laravel.git laravel-app
 ### Step7
 add composer to your laravel-app directory
 ```
-cd laravel-app;docker run --rm -v $(pwd):/app composer install
+cd laravel-app;docker run --rm -v $(pwd):/app composer install;cd ..
 ```
 if you have local repo run following command
 ```
-cd laravel-app;docker run --rm -v $(pwd):/app YOUR_PRIVATE_REGISTRY_URL/composer install
+cd laravel-app;docker run --rm -v $(pwd):/app YOUR_PRIVATE_REGISTRY_URL/composer install;cd ..
 ```
 
 ### Step8 (Optional)
