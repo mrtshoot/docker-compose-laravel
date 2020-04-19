@@ -1,4 +1,4 @@
-.env/
+env/
 laravel-app/
 /mysql/my.cnf
 /nginx/conf.d/app.conf
