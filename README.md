@@ -53,24 +53,41 @@ cd laravel-app;docker run --rm -v $(pwd):/app YOUR_PRIVATE_REGISTRY_URL/composer
 Change your docker images with your local repository if you needed.
 
 ### Step9
+change environment variable for laravel with following configuration
+```
+cp laravel-app/.env.example laravel-app/.env
+```
+
+Change Following Configuration on laravel-app/.env
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=laraveluser
+DB_PASSWORD=your_laravel_db_password
+```
+
+
+### Step10
 run docker compose command
 ```
 docker-compose up -d
 ```
 
-### Step10
+### Step11
 Create your laravel application key with command
 ```
 docker-compose exec app php artisan key:generate
 ```
 
-### Step11
+### Step12
 To cache these settings into a file, which will boost your application’s load speed, run
 ```
 docker-compose exec app php artisan config:cache
 ```
 
-### Step12
+### Step13
 Creating a User for MySQL
 ```
 docker-compose exec db bash
@@ -96,7 +113,7 @@ FLUSH PRIVILEGES;
 ```
 and exit from mysql and container mysql
 
-### Step13
+### Step14
 You can Migrate your laravel with following command
 ```
 docker-compose exec app php artisan migrate
