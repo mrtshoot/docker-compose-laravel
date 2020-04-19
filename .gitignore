@@ -1,0 +1,6 @@
+laravel-app/
+/mysql/my.cnf
+/nginx/conf.d/app.conf
+/nginx/log
+/php/local.ini
+!*.example/
