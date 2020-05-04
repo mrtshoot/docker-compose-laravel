@@ -34,13 +34,13 @@ cp mysql/.my.cnf.example mysql/my.cnf
 
 
 ### Step6
-clone laravel app repository to your current working directory
+Create your laravel-app directory and clone your developer repository with following command
 ```
-git clone https://github.com/laravel/laravel.git laravel-app
+git clone <Repo_URL> laravel-app
 ```
 
 ### Step7
-add composer to your laravel-app directory
+Install composer.notice that developers code should have composer.json
 ```
 cd laravel-app;docker run --rm -v $(pwd):/app composer install;cd ..
 ```
@@ -72,7 +72,7 @@ DB_PASSWORD=your_laravel_db_password
 ### Step10
 run docker compose command
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 ### Step11
