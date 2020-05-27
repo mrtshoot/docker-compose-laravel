@@ -46,7 +46,7 @@ cd laravel-app;docker run --rm -v $(pwd):/app composer install;cd ..
 ```
 if you have local repo run following command
 ```
-cd laravel-app;docker run --rm -v $(pwd):/app YOUR_PRIVATE_REGISTRY_URL/composer install;cd ..
+cd laravel-app;docker run --rm -v $(pwd):/app YOUR_PRIVATE_REGISTRY_URL/composer install -vvv;cd ..
 ```
 
 ### Step8 (Optional)
@@ -68,26 +68,50 @@ DB_USERNAME=laraveluser
 DB_PASSWORD=your_laravel_db_password
 ```
 
-
 ### Step10
+change permission for lumen project to access on it
+```
+sudo chown -R $USER:$USER lumen-app/
+```
+
+### Step11
+Set hostname for php app on docker-compose file if you needed.
+
+### Step12
+Configure SSH Access to PHP Application for Developers
+1. Change SSH port to your own random port in docker-compose
+2. Copy example ssh configuration file and change it base on yourself
+```
+cp ssh_accounts/.sshd_config.example ssh_accounts/sshd_config;cp ssh_accounts/.authorized_keys.example ssh_accounts/authorized_keys
+```
+3. Input developer ssh public key at the end of ssh_accounts/authorized_keys with specific comment for example name and family
+
+### Step13
+```
+Restart ssh service for php app
+```
+docker-compose exec -u root app service ssh restart
+
+
+### Step14
 run docker compose command
 ```
 docker-compose up -d --build
 ```
 
-### Step11
+### Step15
 Create your laravel application key with command
 ```
 docker-compose exec app php artisan key:generate
 ```
 
-### Step12
+### Step16
 To cache these settings into a file, which will boost your application’s load speed, run
 ```
 docker-compose exec app php artisan config:cache
 ```
 
-### Step13
+### Step17
 Creating a User for MySQL
 ```
 docker-compose exec db bash
@@ -113,7 +137,7 @@ FLUSH PRIVILEGES;
 ```
 and exit from mysql and container mysql
 
-### Step14
+### Step18
 You can Migrate your laravel with following command
 ```
 docker-compose exec app php artisan migrate
