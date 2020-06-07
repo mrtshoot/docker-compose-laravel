@@ -87,28 +87,27 @@ cp ssh_accounts/.sshd_config.example ssh_accounts/sshd_config;cp ssh_accounts/.a
 3. Input developer ssh public key at the end of ssh_accounts/authorized_keys with specific comment for example name and family
 
 ### Step13
-```
-Restart ssh service for php app
-```
-docker-compose exec -u root app service ssh restart
-
-
-### Step14
 run docker compose command
 ```
 docker-compose up -d --build
 ```
 
-### Step15
+### Step14
 Create your laravel application key with command
 ```
 docker-compose exec app php artisan key:generate
 ```
 
-### Step16
+### Step15
 To cache these settings into a file, which will boost your application’s load speed, run
 ```
 docker-compose exec app php artisan config:cache
+```
+
+### Step16
+Restart ssh service for php app
+```
+docker-compose exec -u root app service ssh restart
 ```
 
 ### Step17
