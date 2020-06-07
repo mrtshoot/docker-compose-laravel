@@ -41,6 +41,12 @@ COPY ./laravel-app /var/www
 # Copy existing application directory permissions
 COPY --chown=www:www ./laravel-app /var/www
 
+#Add SSH Server and Requirements
+RUN apt update && apt install openssh-server -y
+RUN mkdir /home/www/.ssh
+RUN chown -R www:www /home/www/.ssh
+RUN mkdir /home/www/.composer && chown -R www:www /home/www/.composer
+
 # Change current user to www
 USER www
 
