@@ -26,6 +26,7 @@ services:
       - ./ssh_accounts/authorized_keys:/home/www/.ssh/authorized_keys:ro
       - ./ssh_accounts/sshd_config:/etc/ssh/sshd_config:ro
       - /etc/ssh/banner.txt:/etc/ssh/banner.txt:ro
+      - ./supervisor:/etc/supervisor
   
   #Nginx Service
   webserver:

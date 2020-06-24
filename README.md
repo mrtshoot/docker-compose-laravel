@@ -32,6 +32,11 @@ cp your mysql configuration file
 ```
 cp mysql/.my.cnf.example mysql/my.cnf
 ```
+### Step6
+set your project name to configure files and folder and Change your Supervisor Configuration with your own config by default it has 4 numprocs
+```
+mv supervisor/conf.d/.laravel-worker.conf.example supervisor/conf.d/laravel-worker.conf
+```
 
 
 ### Step6
