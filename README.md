@@ -147,3 +147,9 @@ You can Migrate your laravel with following command
 ```
 docker-compose exec app php artisan migrate
 ```
+
+### Step19
+if you need update composer that has been installed with above command docker run you should run following
+```
+docker-compose exec app composer update -vvv
+```
